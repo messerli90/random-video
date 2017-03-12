@@ -27,6 +27,10 @@ class Video extends Model
     {
         $videos = self::where('channel_title', $channel_title)->get();
 
+        if (!count($videos)) {
+            return false;
+        }
+
         return $videos->random();
     }
 }

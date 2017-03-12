@@ -6,10 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Random FailArmy</title>
+        <meta name="description" content="Watch a random video from Fail Army.">
+        <meta name="keywords" content="fail, failarmy, youtube, video, funny">
 
         <!-- Bootstrap -->
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,16 +39,6 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="main-nav">
-                    {{--<ul class="nav navbar-nav">--}}
-                    {{--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>--}}
-                    {{--<li><a href="#">Link</a></li>--}}
-                    {{--</ul>--}}
-                    {{--<form class="navbar-form navbar-left">--}}
-                        {{--<div class="form-group">--}}
-                            {{--<input type="text" class="form-control" placeholder="Search">--}}
-                        {{--</div>--}}
-                        {{--<button type="submit" class="btn btn-default">Submit</button>--}}
-                    {{--</form>--}}
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="/">Next Random Video</a></li>
                     </ul>
@@ -53,11 +46,9 @@
             </div><!-- /.container-fluid -->
         </nav>
 
-
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-
-
+                @if($video)
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="embed-responsive embed-responsive-16by9">
@@ -67,14 +58,20 @@
                     <div class="panel-footer">
                         <h3>{{ $video->title }}</h3>
                         <p>{{ $video->description }}</p>
-{{--                        <p class="small text-muted">Posted: {{ \Carbon\Carbon::create($video->snippet->publishedAt)->toFormattedDateString() }}</p>--}}
                     </div>
                 </div>
+                @else
+                <em>No video found, try again.</em>
+                @endif
             </div>
         </div>
 
         <footer class="footer text-center">
             <hr>
+            <ul class="list-inline">
+                <li><a href="https://github.com/messerli90/random-video" target="_blank"><i class="fa fa-github fa-2x"></i></a></li>
+                <li><a href="https://twitter.com/michaelmesserli" target="_blank"><i class="fa fa-twitter fa-2x"></i></a></li>
+            </ul>
             <p class="text-muted">All videos belong to the <a href="https://www.youtube.com/user/failarmy">Fail Army</a> Youtube channel.</p>
         </footer>
     </div>
